@@ -1,16 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.send('trang friends')
-})
+const friendsController = require('../app/controllers/FriendsController')
 
-router.get('/birthday', (req, res) => {
-    res.send('trang birthday')
-})
+router.get('/', friendsController.index)
 
-router.get('/requests', (req, res) => {
-    res.send('trang requests')
-})
+router.get('/birthday', friendsController.birthday)
+
+router.get('/requests', friendsController.requests)
 
 module.exports = router
